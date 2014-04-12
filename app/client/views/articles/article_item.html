@@ -1,0 +1,30 @@
+<template name="articleItemList">
+  <a href="{{pathFor 'articleItem'}}" class="list-group-item padding-small">
+    <h4 class="no-margin">{{title}}</h4>
+    <p class="text-muted"><small>by {{author}} on {{formatDate timestamp "short"}}</small></p>
+    <p class="article-excerpt">
+      {{excerpt}}
+    </p>
+  </a>
+</template>
+
+<template name="articleItem">
+  <div class="row sticky background-light--faded">
+    <div class="col-sm-9 col-md-10 padding-small">
+      <h3 class="no-margin">{{title}}</h3>
+      <p class="no-margin text-muted"><small>by {{author}} on {{formatDate timestamp "short"}}</small></p>
+    </div>
+    <div class="col-sm-3 col-md-2 padding-small">
+      {{#unless bookmarked}}
+        <button id="bookmarkAdd" class="pull-right margin-top--small margin-right--small btn btn-sm btn-default">Add to Bookmarks</button>
+      {{else}}
+        <button id="bookmarkRemove" class="pull-right margin-top--small margin-right--small btn btn-sm btn-default">Remove from Bookmarks</button>
+      {{/unless}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="margin-top margin-bottom--small col-sm-12">
+      <p>{{{safeString content}}}</p>
+    </div>
+  </div>
+</template>

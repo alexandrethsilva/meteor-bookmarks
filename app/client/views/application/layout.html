@@ -1,0 +1,30 @@
+<template name="layout">
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Bookmarks</a>
+    </div>
+
+  </div>
+
+  <div class="row content-inner no-padding">
+    <div class="col-sm-4 col-md-3 content-column">
+      <div class="row sticky background-light--faded">
+        <div class="padding-small">
+          <h5 class="no-margin">Latest Articles</h5>
+        </div>
+      </div>
+      <div class="row">
+        {{> articlesList}}
+      </div>
+    </div>
+    <div id="article-content" class="col-sm-8 col-md-9 content-column">
+      {{> yield}}
+    </div>
+  </div>
+
+  <div id="footer">
+    <div class="col-sm-12">
+      <p class="no-margin text-muted text-right small">Made as an example for <a href="http://letskeen.com"><strong>Keen</strong></a>.</p>
+    </div>
+  </div>
+</template>

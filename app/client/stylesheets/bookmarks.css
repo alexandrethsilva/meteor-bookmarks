@@ -1,0 +1,174 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom Bookmarks CSS
+-------------------------------------------------- */
+
+body > .content-inner {
+  position: absolute;
+  margin: 50px 0;
+  padding: 0 15px;
+  height: calc(100% - 80px);
+  overflow-y: hidden;
+}
+
+.content-column {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+#footer p {
+  line-height: 30px;
+}
+
+
+/* Custom classes for managing spacing and padding
+------------------------------------------------- */
+
+.no-margin {
+  margin: 0 !important;
+}
+.no-margin--top {
+  margin-top: 0 !important;
+}
+.no-margin--bottom {
+  margin-bottom: 0 !important;
+}
+.no-margin--left {
+  margin-left: 0 !important;
+}
+.no-margin--right {
+  margin-right: 0 !important;
+}
+
+.margin-auto {
+  float: none;
+  margin: 0 auto !important;
+}
+.margin {
+  margin: 20px !important;
+}
+.margin-large {
+  margin: 40px !important;
+}
+
+.margin-top {
+  margin-top: 20px !important;
+}
+.margin-top--small {
+  margin-top: 10px !important;
+}
+.margin-top--large {
+  margin-top: 40px !important;
+}
+
+.margin-bottom {
+  margin-bottom: 20px !important;
+}
+.margin-bottom--small {
+  margin-bottom: 10px !important;
+}
+.margin-bottom--large {
+  margin-bottom: 40px !important;
+}
+
+.margin-left {
+  margin-left: 20px !important;
+}
+.margin-left--small {
+  margin-left: 10px !important;
+}
+.margin-left--large {
+  margin-left: 40px !important;
+}
+
+.margin-right {
+  margin-right: 20px !important;
+}
+.margin-right--small {
+  margin-right: 10px !important;
+}
+.margin-right--large {
+  margin-right: 40px !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+.padding-small {
+  padding: 10px !important;
+}
+.padding-large {
+  padding: 40px !important;
+}
+
+.no-padding--top {
+  padding-top: 0 !important;
+}
+.no-padding--bottom {
+  padding-bottom: 0 !important;
+}
+.no-padding--left {
+  padding-left: 0 !important;
+}
+.no-padding--right {
+  padding-right: 0 !important;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+/* Custom classes for managing appearance
+------------------------------------------------- */
+
+* {
+  -webkit-transition: all .15s ease-out;
+}
+
+.content-column > .row.sticky {
+  border: 1px solid #DDD;
+  border-top: none;
+}
+
+.content-column > .row > .list-group a {
+  border-radius: 0;
+}
+
+.background-light {
+  background-color: white;
+}
+
+.background-light--faded {
+  background-color: rgba(255, 255, 255, .95);
+}
+
+.background-soft {
+  background-color: #f5f5f5;
+}
+
+.background-soft--faded {
+  background-color: RGBA(245, 245, 245, .95);
+}
+
+.article-excerpt {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
