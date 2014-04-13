@@ -2,7 +2,13 @@ if(Meteor.isClient){
   Router.configure({
     layoutTemplate: "layout",
     loadingTemplate: "loading",
-    waitOn: function(){ return Meteor.subscribe("articlesList"); }
+    waitOn: function(){
+      return [
+        Meteor.subscribe("articlesList"),
+        Meteor.subscribe("articlesBookmarked"),
+        Meteor.subscribe("notes")
+      ]
+    }
   });
 
   Router.map(function () {

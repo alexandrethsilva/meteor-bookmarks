@@ -1,64 +1,79 @@
 Meteor.startup(function(){
   if(Articles.find().count() === 0) {
-    Articles.insert({
+    Articles._ensureIndex({ slug: 1 },{ unique: true });
+    var article1 = Articles.insert({
       author: "Matt Burns",
       bookmarked: false,
-      timestamp: new Date("08/04/2014"),
       content: '4K TV is here. Sort of. Netflix is now streaming the second season of House of Cards and some nature documentaries in 4K/Ultra HD format. But of course, your TV has to support the higher resolution to take advantage of the extra pixel count.<br><br>Programs available for viewing in 4K will appear with the Ultra HD 4K label. Netflix confirmed to Multichannel News that the company is now streaming some titles in the higher resolution. Currently, Netflix is limiting 4k streaming to only TVs with Netflix and HEVC/H.265 decoding capabilities built in.<br><br>HDTVtest.com notes that the higher resolution stream really shines with “bright, colorful scenes” adding that the images were “rendered with greater sharpness and smoother gradients.”<br><br>Still, the bitrate of these streams are only around 15 Mbps so while the picture will be superior to HD Netflix, this flavor of 4K is not a true demonstration of the higher resolution. HDTVtest.com adds that to their trained eyes, some Blu-ray titles still offer a cleaner image.<br><br>The best is yet to come.',
       excerpt: "4K TV is here. Sort of. Netflix is now streaming the second season of House of Cards and some nature documentaries in 4K/Ultra HD format. But of course, your TV has to support the higher resolution to take advantage of the extra pixel count. Programs available for viewing in 4K will appear with the Ultra HD 4K label.",
       source: "Tech Crunch",
-      slug: "netflix-is-now-streaming-in-4k",
-      title: "Netflix Is Now Streaming In 4K"
-    });
-    Articles.insert({
-      author: "Ingrid Lunden",
-      bookmarked: false,
-      timestamp: new Date("11/04/2014"),
-      content: "Salesforce unveiled plans for a new, 61-story Salesforce Tower at 415 Mission Street in San Francisco to expand its worldwide headquarters, and as part of that it’s filed an 8-K form with the SEC with the details of how much it will be investing to do so.<br><br>The CRM giant will pay $560 million over a period of 15 years starting 2018 to lease space, with an additional $130 million on top of that for for leasehold improvements, amounting to a total of outlay of $680 million.",
-      excerpt: "Salesforce unveiled plans for a new, 61-story Salesforce Tower at 415 Mission Street in San Francisco to expand its worldwide headquarters, and as part of that it's filed an 8-K form with the SEC with the details of how much it will be investing to do so.",
-      source: "Tech Crunch",
-      slug: "salesforce-will-pay-680m-to-expand-its-sf-hq-into-the-new-salesforce-tower",
-      title: "Salesforce Will Pay $680M To Expand Its SF HQ Into The New Salesforce Tower"
-    });
-    Articles.insert({
-      author: "Daniel Ethenrington",
-      bookmarked: false,
-      timestamp: new Date("11/04/2014"),
-      content: "Apple’s 2014 roadmap was laid out in pretty considerable detail by KGI Securities analyst Ming-Chi Kuo earlier this week in an investor note, and while ordinarily analyst predictions aren’t worth the paper they’re printed on, Kuo has a solid track record of actually getting things right. Among Kuo’s predictions are larger iPhones, a Retina MacBook Air, improved Apple TV, iPad with Touch ID and iWatch launch later this year. But one small detail could have more potential impact than all the rest: NFC inclusion in iWatch and iPhone devices.<br><br>Apple has never thought much of NFC, at least when it comes to its own devices, and has avoided building the communication tech into its gadgets for years while the Android competition turned it into a device default. NFC had a lot of early buzz, but for the most part, its usefulness for the average person comes in its ability to act as a handshake tech to ease the process of Bluetooth pairing. It still has some utility as a mobile payments transfer tech, but even with mobile payment options built into Android phones that support it, it hasn’t taken off in that regard.",
-      excerpt: "Apple’s 2014 roadmap was laid out in pretty considerable detail by KGI Securities analyst Ming-Chi Kuo earlier this week in an investor note, and while ordinarily analyst predictions aren’t worth the paper they’re printed on, Kuo has a solid track record of actually getting things right.",
-      source: "Tech Crunch",
-      slug: "apple-could-finally-adopt-nfc-on-iphone-for-mobile-payment-plans-and-touch-id",
-      title: "Apple Could Finally Adopt NFC On iPhone For Mobile Payment Plans And Touch ID"
-    });
-    Articles.insert({
-      author: "Matt Burns",
-      bookmarked: false,
+      slug: "matt-burns-netflix-is-now-streaming-in-4k",
       timestamp: new Date("08/04/2014"),
-      content: '4K TV is here. Sort of. Netflix is now streaming the second season of House of Cards and some nature documentaries in 4K/Ultra HD format. But of course, your TV has to support the higher resolution to take advantage of the extra pixel count.<br><br>Programs available for viewing in 4K will appear with the Ultra HD 4K label. Netflix confirmed to Multichannel News that the company is now streaming some titles in the higher resolution. Currently, Netflix is limiting 4k streaming to only TVs with Netflix and HEVC/H.265 decoding capabilities built in.<br><br>HDTVtest.com notes that the higher resolution stream really shines with “bright, colorful scenes” adding that the images were “rendered with greater sharpness and smoother gradients.”<br><br>Still, the bitrate of these streams are only around 15 Mbps so while the picture will be superior to HD Netflix, this flavor of 4K is not a true demonstration of the higher resolution. HDTVtest.com adds that to their trained eyes, some Blu-ray titles still offer a cleaner image.<br><br>The best is yet to come.',
-      excerpt: "4K TV is here. Sort of. Netflix is now streaming the second season of House of Cards and some nature documentaries in 4K/Ultra HD format. But of course, your TV has to support the higher resolution to take advantage of the extra pixel count. Programs available for viewing in 4K will appear with the Ultra HD 4K label.",
-      source: "Tech Crunch",
-      slug: "netflix-is-now-streaming-in-4k",
       title: "Netflix Is Now Streaming In 4K"
     });
-    Articles.insert({
+    var article2 = Articles.insert({
       author: "Ingrid Lunden",
       bookmarked: false,
-      timestamp: new Date("11/04/2014"),
       content: "Salesforce unveiled plans for a new, 61-story Salesforce Tower at 415 Mission Street in San Francisco to expand its worldwide headquarters, and as part of that it’s filed an 8-K form with the SEC with the details of how much it will be investing to do so.<br><br>The CRM giant will pay $560 million over a period of 15 years starting 2018 to lease space, with an additional $130 million on top of that for for leasehold improvements, amounting to a total of outlay of $680 million.",
       excerpt: "Salesforce unveiled plans for a new, 61-story Salesforce Tower at 415 Mission Street in San Francisco to expand its worldwide headquarters, and as part of that it's filed an 8-K form with the SEC with the details of how much it will be investing to do so.",
       source: "Tech Crunch",
-      slug: "salesforce-will-pay-680m-to-expand-its-sf-hq-into-the-new-salesforce-tower",
+      slug: "ingrid-lunden-salesforce-will-pay-680m-to-expand-its-sf-hq-into-the-new-salesforce-tower",
+      timestamp: new Date("11/04/2014"),
       title: "Salesforce Will Pay $680M To Expand Its SF HQ Into The New Salesforce Tower"
     });
-    Articles.insert({
+    var article3 = Articles.insert({
       author: "Daniel Ethenrington",
       bookmarked: false,
-      timestamp: new Date("11/04/2014"),
       content: "Apple’s 2014 roadmap was laid out in pretty considerable detail by KGI Securities analyst Ming-Chi Kuo earlier this week in an investor note, and while ordinarily analyst predictions aren’t worth the paper they’re printed on, Kuo has a solid track record of actually getting things right. Among Kuo’s predictions are larger iPhones, a Retina MacBook Air, improved Apple TV, iPad with Touch ID and iWatch launch later this year. But one small detail could have more potential impact than all the rest: NFC inclusion in iWatch and iPhone devices.<br><br>Apple has never thought much of NFC, at least when it comes to its own devices, and has avoided building the communication tech into its gadgets for years while the Android competition turned it into a device default. NFC had a lot of early buzz, but for the most part, its usefulness for the average person comes in its ability to act as a handshake tech to ease the process of Bluetooth pairing. It still has some utility as a mobile payments transfer tech, but even with mobile payment options built into Android phones that support it, it hasn’t taken off in that regard.",
       excerpt: "Apple’s 2014 roadmap was laid out in pretty considerable detail by KGI Securities analyst Ming-Chi Kuo earlier this week in an investor note, and while ordinarily analyst predictions aren’t worth the paper they’re printed on, Kuo has a solid track record of actually getting things right.",
       source: "Tech Crunch",
-      slug: "apple-could-finally-adopt-nfc-on-iphone-for-mobile-payment-plans-and-touch-id",
+      slug: "daniel-ethenrington-apple-could-finally-adopt-nfc-on-iphone-for-mobile-payment-plans-and-touch-id",
+      timestamp: new Date("11/04/2014"),
       title: "Apple Could Finally Adopt NFC On iPhone For Mobile Payment Plans And Touch ID"
     });
+    var article4 = Articles.insert({
+      author: "Mat Honan",
+      bookmarked: true,
+      content: "<img class='img-responsive' title='ff-mat-honan-password-hacker_f' src='http://www.wired.com/images_blogs/gadgetlab/2012/11/ff-mat-honan-password-hacker_f-660x821.jpg' alt=' width='660' height='821'><br /><br />You have a secret that can ruin your life.<br /><br />It’s not a well-kept secret, either. Just a simple string of characters—maybe six of them if you’re careless, 16 if you’re cautious—that can reveal everything about you.<br /><br />Your email. Your bank account. Your address and credit card number. Photos of your kids or, worse, of yourself, naked. The precise location where you’re sitting right now as you read these words. Since the dawn of the information age, we’ve bought into the idea that a password, so long as it’s elaborate enough, is an adequate means of protecting all this precious data. But in 2012 that’s a fallacy, a fantasy, an outdated sales pitch. And anyone who still mouths it is a sucker—or someone who takes you for one.<br /><br />No matter how complex, no matter how unique, your passwords can no longer protect you.<br /><br />Look around. Leaks and dumps—hackers breaking into computer systems and releasing lists of usernames and passwords on the open web—are now regular occurrences. The way we daisy-chain accounts, with our email address doubling as a universal username, creates a single point of failure that can be exploited with devastating results. Thanks to an explosion of personal information being stored in the cloud, tricking customer service agents into resetting passwords has never been easier. All a hacker has to do is use personal information that’s publicly available on one service to gain entry into another.<br /><br />This summer, hackers destroyed my entire digital life in the span of an hour. My Apple, Twitter, and Gmail passwords were all robust—seven, 10, and 19 characters, respectively, all alphanumeric, some with symbols thrown in as well—but the three accounts were linked, so once the hackers had conned their way into one, they had them all. They really just wanted my Twitter handle: @mat. As a three-letter username, it’s considered prestigious. And to delay me from getting it back, they used my Apple account to wipe every one of my devices, my iPhone and iPad and MacBook, deleting all my messages and documents and every picture I’d ever taken of my 18-month-old daughter.<br /><br />The age of the password is over. We just haven’t realized it yet.<br /><br />Since that awful day, I’ve devoted myself to researching the world of online security. And what I have found is utterly terrifying. Our digital lives are simply too easy to crack. Imagine that I want to get into your email. Let’s say you’re on AOL. All I need to do is go to the website and supply your name plus maybe the city you were born in, info that’s easy to find in the age of Google. With that, AOL gives me a password reset, and I can log in as you.<br /><br />First thing I do? Search for the word “bank” to figure out where you do your online banking. I go there and click on the Forgot Password? link. I get the password reset and log in to your account, which I control. Now I own your checking account as well as your email.<br /><br />This summer I learned how to get into, well, everything. With two minutes and $4 to spend at a sketchy foreign website, I could report back with your credit card, phone, and Social Security numbers and your home address. Allow me five minutes more and I could be inside your accounts for, say, Amazon, Best Buy, Hulu, Microsoft, and Netflix. With yet 10 more, I could take over your AT&T, Comcast, and Verizon. Give me 20—total—and I own your PayPal. Some of those security holes are plugged now. But not all, and new ones are discovered every day.<br /><br />The common weakness in these hacks is the password. It’s an artifact from a time when our computers were not hyper-connected. Today, nothing you do, no precaution you take, no long or random string of characters can stop a truly dedicated and devious individual from cracking your account. The age of the password has come to an end; we just haven’t realized it yet.<br /><br />Passwords are as old as civilization. And for as long as they’ve existed, people have been breaking them.<br /><br />In 413 BC, at the height of the Peloponnesian War, the Athenian general Demosthenes landed in Sicily with 5,000 soldiers to assist in the attack on Syracusae. Things were looking good for the Greeks. Syracusae, a key ally of Sparta, seemed sure to fall.<br /><br />But during a chaotic nighttime battle at Epipole, Demosthenes’ forces were scattered, and while attempting to regroup they began calling out their watchword, a prearranged term that would identify soldiers as friendly. The Syracusans picked up on the code and passed it quietly through their ranks. At times when the Greeks looked too formidable, the watchword allowed their opponents to pose as allies. Employing this ruse, the undermatched Syracusans decimated the invaders, and when the sun rose, their cavalry mopped up the rest. It was a turning point in the war.<br /><br />The first computers to use passwords were likely those in MIT’s Compatible Time-Sharing System, developed in 1961. To limit the time any one user could spend on the system, CTSS used a login to ration access. It only took until 1962 when a PhD student named Allan Scherr, wanting more than his four-hour allotment, defeated the login with a simple hack: He located the file containing the passwords and printed out all of them. After that, he got as much time as he wanted.",
+      excerpt: "“This summer, hackers destroyed my entire digital life in the span of an hour,” says Wired senior writer Mat Honan.",
+      source: "Wired",
+      slug: "mat-honan-kill-the-password-why-a-string-of-characters-cant-protect-us-anymore",
+      timestamp: new Date("26 Nov, 2012"),
+      title: "Kill the Password: Why a String of Characters Can’t Protect Us Anymore"
+    });
+    var article5 = Articles.insert({
+      author: "Charlie Demerjian",
+      bookmarked: false,
+      content: "Microsoft is in deep trouble, their two main product lines are failing, and the blame game is intensifying. Steve Sinofsky gets the blame this time for the failure of Windows 8, but the real problem is the patterns that are so clearly illustrated by these actions.<br /><br />Microsoft is largely irrelevant to computing of late, the only markets they still play in are evaporating with stunning rapidity. Their long history of circling the wagons tighter and tighter works decently as long as there is not a credible alternative, and that strategy has been the entirety of the Microsoft playbook for so long that there is nothing else now. It works, and as the walls grow higher, customer enmity builds while the value of an alternative grows. This cycle repeats as long as there is no alternative. If there is, everything unravels with frightening rapidity.<br /><br />A company that plays this game for too long becomes set in their ways, and any chance of real change simply becomes impossible. Microsoft is there, and has been for a long long time. Their product lines have stagnated, creating customer lock in is prioritized over creating customer value, and the supply chain is controlled by an iron fisted monopoly. Any attempt at innovation with a Windows PC has been shut out for over a decade, woe betide anyone who tried to buck that trend. The history books are littered with the corpses of companies that tried to make change the ‘Windows experience’. Microsoft’s displeasure is swift and fatal to those that try. Or at least it was.<br /><br />In the end, Windows advanced only to the point of undercutting any competition, and even then to the minimum extent possible. The rules in Redmond were, “Do not change anything unless it is to crush someone doing something innovative”. They didn’t unless they did, and it worked. And the market stagnated. Ask yourself when the last time Microsoft did something innovative? Did it come from internal impetuses, or a clone of the competition?<br /><br />Sooner or later, someone will come along and do a better job than the treacle that Microsoft, offers. Actually that happens all the time. How about, sooner or later, someone will come along and do a better job than the treacle that Microsoft offers, and for some reason, Microsoft won’t be able to crush them like a bug. Then the circled wagons have an alternative. Then the decades of built up enmity have an outlet. Then Microsoft is in trouble.<br /><br />In such a situation, a company has two choices, both of which are quite stark. They can radically change their ways or they can wither and die. Before you point to Windows 8 and say, “But they are changing and innovating”, hold off a moment, it isn’t what you think.<br /><br />Microsoft has three product lines that underpin everything, Windows, Windows Server, and Windows Mobile/Phone/WART/whatevertheynameitthisweek. On those, the other moneymakers, Office and Exchange, run exclusively. The apps use protocols that are locked down with dubious methods, and will not run on any competition. The competition is likewise excluded from doing what Microsoft can, either directly like Novell, or by raising the cost to the point of it not being profitable. This is how the wagons are circled, with every iteration, the cost of competing go up, and value of alternatives go up too.<br /><br />The problem is that if you are locked in with a choice of 100% Microsoft or 0% Microsoft, once someone goes, it isn’t a baby step, they are gone. Once you start using Google Docs and the related suites, you have no need for Office. That means you, or likely your company, saves several hundred dollars a head. No need for Office means no need for Exchange. No need for Exchange means no need for Windows Server. No need for Office means no need for Windows. Once the snowball starts rolling, it picks up speed a frightening pace. And that is where we are. The barriers to exit are now even more potent barriers to entry.",
+      excerpt: "Microsoft is in deep trouble, their two main product lines are failing, and the blame game is intensifying. Steve Sinofsky gets the blame this time for the failure of Windows 8, but the real problem is the patterns that are so clearly illustrated by these actions.",
+      source: "SemiAccurate",
+      slug: "charlie-demerjian-microsoft-has-failed",
+      timestamp: new Date("Nov 14, 2012"),
+      title: "Microsoft has failed"
+    });
+
+    var now = new Date();
+    Notes.insert({
+      articleId: article4,
+      body: "This note has a rather useles comment.",
+      timestamp: now - 7 * 3600 * 1000,
+      title: "Sample note 1"
+    });
+    Notes.insert({
+      articleId: article4,
+      body: "Here too, but it's ok.",
+      timestamp: now - 4 * 3600 * 1000,
+      title: "Sample note 2"
+    });
+    Notes.insert({
+      articleId: article4,
+      body: "I mean, everybody's gotta test sometime.",
+      timestamp: now - 4 * 3600 * 1000,
+      title: "Sample note 3"
+    });
+
+    if(Meteor.isServer){
+      console.log("Finished insertion of sample data.");
+    }
   }
 });

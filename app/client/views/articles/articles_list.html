@@ -1,7 +1,49 @@
 <template name="articlesList">
-  <ul class="list-group no-margin">
-    {{#each articles}}
-      {{> articleItemList}}
-    {{/each}}
-  </ul>
+  <div id="list-articles" class="row sticky-top background-light--faded soft-shadow" style="top:32px">
+    <div class="padding-small">
+      <h5 class="no-margin cursor-default">Latest Articles</h5>
+    </div>
+  </div>
+  <div class="row list-articles-items">
+    <ul class="list-group no-margin">
+      {{#each articles}}
+        {{> articlesItemList}}
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="articlesBookmarkedList">
+  <div id="list-bookmarks" class="row sticky-top background-light--faded soft-shadow">
+    <div class="padding-small">
+      <h5 class="no-margin cursor-default">Bookmarked Articles</h5>
+    </div>
+  </div>
+  <div class="row list-bookmarks-items">
+    <ul class="list-group no-margin">
+      {{#each articlesBookmarked}}
+        {{> articlesBookmarkedItemList}}
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="articlesItemList">
+  <a href="{{pathFor 'articleItem'}}" class="{{ isRouteActive slug 'article' }}list-group-item padding-small">
+    <h4 class="no-margin">{{title}}</h4>
+    <p class="text-muted"><small>by {{author}} on {{formatDate timestamp "short"}}</small></p>
+    <p class="article-excerpt">
+      {{excerpt}}
+    </p>
+  </a>
+</template>
+
+<template name="articlesBookmarkedItemList">
+  <a href="{{pathFor 'articleItem'}}" class="{{ isRouteActive slug 'article' }}list-group-item padding-small">
+    <h4 class="no-margin">{{title}}</h4>
+    <p class="text-muted"><small>by {{author}} on {{formatDate timestamp "short"}}</small></p>
+    <p class="article-excerpt">
+      {{excerpt}}
+    </p>
+  </a>
 </template>

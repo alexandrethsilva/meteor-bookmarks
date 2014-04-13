@@ -4,14 +4,17 @@ html {
   position: relative;
   min-height: 100%;
 }
-#footer {
+
+footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 30px;
-  background-color: #f5f5f5;
 }
 
+footer p {
+  line-height: 30px;
+}
 
 /* Custom Bookmarks CSS
 -------------------------------------------------- */
@@ -28,11 +31,6 @@ body > .content-inner {
   height: 100%;
   overflow-y: scroll;
 }
-
-#footer p {
-  line-height: 30px;
-}
-
 
 /* Custom classes for managing spacing and padding
 ------------------------------------------------- */
@@ -58,60 +56,60 @@ body > .content-inner {
   margin: 0 auto !important;
 }
 .margin {
-  margin: 20px !important;
+  margin: 15px !important;
 }
 .margin-large {
-  margin: 40px !important;
+  margin: 30px !important;
 }
 
 .margin-top {
-  margin-top: 20px !important;
+  margin-top: 15px !important;
 }
 .margin-top--small {
-  margin-top: 10px !important;
+  margin-top: 8px !important;
 }
 .margin-top--large {
-  margin-top: 40px !important;
+  margin-top: 30px !important;
 }
 
 .margin-bottom {
-  margin-bottom: 20px !important;
+  margin-bottom: 15px !important;
 }
 .margin-bottom--small {
-  margin-bottom: 10px !important;
+  margin-bottom: 8px !important;
 }
 .margin-bottom--large {
-  margin-bottom: 40px !important;
+  margin-bottom: 30px !important;
 }
 
 .margin-left {
-  margin-left: 20px !important;
+  margin-left: 15px !important;
 }
 .margin-left--small {
-  margin-left: 10px !important;
+  margin-left: 8px !important;
 }
 .margin-left--large {
-  margin-left: 40px !important;
+  margin-left: 30px !important;
 }
 
 .margin-right {
-  margin-right: 20px !important;
+  margin-right: 15px !important;
 }
 .margin-right--small {
-  margin-right: 10px !important;
+  margin-right: 8px !important;
 }
 .margin-right--large {
-  margin-right: 40px !important;
+  margin-right: 30px !important;
 }
 
 .no-padding {
   padding: 0 !important;
 }
 .padding-small {
-  padding: 10px !important;
+  padding: 8px !important;
 }
 .padding-large {
-  padding: 40px !important;
+  padding: 30px !important;
 }
 
 .no-padding--top {
@@ -127,7 +125,75 @@ body > .content-inner {
   padding-right: 0 !important;
 }
 
-.sticky {
+.padding-top {
+  padding-top: 15px !important;
+}
+.padding-top--small {
+  padding-top: 8px !important;
+}
+.padding-top--large {
+  padding-top: 30px !important;
+}
+.padding-bottom {
+  padding-bottom: 15px !important;
+}
+.padding-bottom--small {
+  padding-bottom: 8px !important;
+}
+.padding-bottom--large {
+  padding-bottom: 30px !important;
+}
+.padding-left {
+  padding-left: 15px !important;
+}
+.padding-left--small {
+  padding-left: 8px !important;
+}
+.padding-left--large {
+  padding-left: 30px !important;
+}
+.padding-right {
+  padding-right: 15px !important;
+}
+.padding-right--small {
+  padding-right: 8px !important;
+}
+.padding-right--large {
+  padding-right: 30px !important;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.absolute.top {
+  bottom: auto;
+}
+.absolute.right {
+  left: auto;
+}
+.absolute.bottom {
+  top: auto;
+}
+.absolute.left {
+  right: auto;
+}
+
+.sticky-top {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.sticky-bottom {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -137,11 +203,36 @@ body > .content-inner {
 /* Custom classes for managing appearance
 ------------------------------------------------- */
 
+.spinner {
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  top: 50% !important;
+  left: 50% !important;
+}
+
 * {
   -webkit-transition: all .15s ease-out;
 }
 
-.content-column > .row.sticky {
+.cursor-default {
+  cursor: default;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.circle {
+  border-radius: 100%;
+}
+
+.soft-shadow {
+  -moz-box-shadow: 0 2px 3px rgba(0,0,0,.075);
+  -ms-box-shadow: 0 2px 3px rgba(0,0,0,.075);
+  box-shadow: 0 2px 3px rgba(0,0,0,.075);
+}
+
+.content-column > .row.sticky-top {
   border: 1px solid #DDD;
   border-top: none;
 }
@@ -151,7 +242,7 @@ body > .content-inner {
 }
 
 .background-light {
-  background-color: white;
+  background-color: #FFF;
 }
 
 .background-light--faded {
@@ -159,11 +250,11 @@ body > .content-inner {
 }
 
 .background-soft {
-  background-color: #f5f5f5;
+  background-color: rgba(235, 235, 235, 1);
 }
 
 .background-soft--faded {
-  background-color: RGBA(245, 245, 245, .95);
+  background-color: rgba(235, 235, 235, .3);
 }
 
 .article-excerpt {
@@ -171,4 +262,13 @@ body > .content-inner {
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+.list-bookmarks-items .list-group-item {
+  border-left: 3px solid rgba(253, 169, 41, 1);
+  background: rgba(235, 235, 235, .3);
+}
+.list-bookmarks-items .list-group-item.active {
+  border-left: 3px solid rgba(253, 169, 41, 1);
+  background: rgba(235, 235, 235, 1);
 }

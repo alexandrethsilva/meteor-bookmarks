@@ -13,3 +13,16 @@ UI.registerHelper("formatDate", function(timestamp, format) {
 UI.registerHelper("safeString", function(html) {
   return new Handlebars.SafeString(html)
 });
+
+UI.registerHelper("isCollectionEmpty", function(collection) {
+  return collection.count() ? false : true;
+});
+
+UI.registerHelper('isRouteActive', function (routePath,parentCategory) {
+  if(Router.current().path.match(routePath,"") !== null) {
+    return "active ";
+  }
+  else {
+    return "";
+  }
+});
