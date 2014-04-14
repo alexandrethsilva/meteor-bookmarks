@@ -1,5 +1,5 @@
 Template.articlesList.helpers({
-  articles: function(){ return Articles.find({}, { fields: { content: false } }) }
+  articles: function(){ return Articles.find({ bookmarked: false }, { fields: { content: false } }) }
 });
 
 Template.articlesBookmarkedList.helpers({

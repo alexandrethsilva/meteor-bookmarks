@@ -2,6 +2,7 @@ if(Meteor.isClient){
   Router.configure({
     layoutTemplate: "layout",
     loadingTemplate: "loading",
+    notFoundTemplate: "404",
     waitOn: function(){
       return [
         Meteor.subscribe("articlesList"),
@@ -14,7 +15,7 @@ if(Meteor.isClient){
   Router.map(function () {
     this.route("home", {
       path: "/",
-      template: "layout"
+      template: "empty"
     });
 
     this.route("articleItem", {
