@@ -30,6 +30,7 @@ body > .content-inner {
 .content-column {
   height: 100%;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Custom classes for managing spacing and padding
