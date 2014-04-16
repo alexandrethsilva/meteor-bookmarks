@@ -25,6 +25,7 @@ Template.articleItem.events({
   "click #noteCreate": function(e){
     document.getElementById("notesCallout").classList.add("hidden");
     document.getElementById("noteForm").classList.remove("hidden");
+    document.getElementById("noteTitle").focus();
   },
   "click #noteAdd": function(e, article){
     e.preventDefault();

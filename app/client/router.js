@@ -25,6 +25,11 @@ if(Meteor.isClient){
         return Articles.findOne({ slug: this.params.slug })
       }
     });
+
+    this.route("scrollInterception", {
+      path: "/scrollInterception",
+      template: "scrollInterception"
+    });
   });
 
   Router.onBeforeAction("loading");
