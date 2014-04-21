@@ -1,4 +1,5 @@
 <template name="articlesList">
+  {{#unless isCollectionEmpty articles}}
   <div id="list-articles" class="row sticky-top background-light--faded soft-shadow" style="top:32px">
     <div class="padding-small">
       <h5 class="no-margin cursor-default">Latest Articles</h5>
@@ -11,9 +12,11 @@
       {{/each}}
     </ul>
   </div>
+  {{/unless}}
 </template>
 
 <template name="articlesBookmarkedList">
+  {{#unless isCollectionEmpty articlesBookmarked}}
   <div id="list-bookmarks" class="row sticky-top background-light--faded soft-shadow">
     <div class="padding-small">
       <h5 class="no-margin cursor-default">Bookmarked Articles</h5>
@@ -26,6 +29,7 @@
       {{/each}}
     </ul>
   </div>
+  {{/unless}}
 </template>
 
 <template name="articlesItemList">

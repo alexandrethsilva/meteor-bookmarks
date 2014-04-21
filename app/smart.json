@@ -2,6 +2,7 @@
   "packages": {
     "iron-router": {},
     "moment": {},
-    "spin": {}
+    "spin": {},
+    "fast-render": {}
   }
 }
