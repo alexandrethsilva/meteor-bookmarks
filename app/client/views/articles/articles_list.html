@@ -1,35 +1,61 @@
 <template name="articlesList">
-  {{#if articles}}
-  <div id="list-articles" class="row sticky-top background-light--faded soft-shadow" style="top:32px">
-    <div class="padding-small">
-      <h5 class="no-margin cursor-default">Latest Articles</h5>
+  {{#unless isCollectionEmpty articles}}
+    <div id="list-articles" class="row sticky-top background-light--faded soft-shadow" style="top:32px;">
+      <div class="padding-small">
+        <h5 class="no-margin cursor-default">Latest Articles</h5>
+      </div>
     </div>
-  </div>
-  <div class="row list-articles-items">
-    <ul class="list-group no-margin">
-      {{#each articles}}
-        {{> articlesItemList}}
-      {{/each}}
-    </ul>
-  </div>
-  {{/if}}
+    <div class="row list-articles-items">
+      <ul class="list-group no-margin">
+        <li class="list-group-item loading">
+          {{> spinner}}
+        </li>
+      </ul>
+    </div>
+  {{else}}
+    <div id="list-articles" class="row sticky-top background-light--faded soft-shadow" style="top:32px">
+      <div class="padding-small">
+        <h5 class="no-margin cursor-default">Latest Articles</h5>
+      </div>
+    </div>
+    <div class="row list-articles-items">
+      <ul class="list-group no-margin">
+        {{#each articles}}
+          {{> articlesItemList}}
+        {{/each}}
+      </ul>
+    </div>
+  {{/unless}}
 </template>
 
 <template name="articlesBookmarkedList">
-  {{#if articlesBookmarked}}
-  <div id="list-bookmarks" class="row sticky-top background-light--faded soft-shadow">
-    <div class="padding-small">
-      <h5 class="no-margin cursor-default">Bookmarked Articles</h5>
+  {{#unless isCollectionEmpty articlesBookmarked}}
+    <div id="list-bookmarks" class="row sticky-top background-light--faded soft-shadow">
+      <div class="padding-small">
+        <h5 class="no-margin cursor-default">Bookmarked Articles</h5>
+      </div>
     </div>
-  </div>
-  <div class="row list-bookmarks-items">
-    <ul class="list-group no-margin">
-      {{#each articlesBookmarked}}
-        {{> articlesBookmarkedItemList}}
-      {{/each}}
-    </ul>
-  </div>
-  {{/if}}
+    <div class="row list-bookmarks-items">
+      <ul class="list-group no-margin">
+        <li class="list-group-item loading">
+          {{> spinner}}
+        </li>
+      </ul>
+    </div>
+  {{else}}
+    <div id="list-bookmarks" class="row sticky-top background-light--faded soft-shadow">
+      <div class="padding-small">
+        <h5 class="no-margin cursor-default">Bookmarked Articles</h5>
+      </div>
+    </div>
+    <div class="row list-bookmarks-items">
+      <ul class="list-group no-margin">
+        {{#each articlesBookmarked}}
+          {{> articlesBookmarkedItemList}}
+        {{/each}}
+      </ul>
+    </div>
+  {{/unless}}
 </template>
 
 <template name="articlesItemList">
