@@ -7,7 +7,7 @@ Template.articlesBookmarkedList.helpers({
 });
 
 Template.articlesList.events({
-  "click #list-articles": function(){
+  "touchstart #list-articles, click #list-articles": function(){
     var column = document.querySelector("#articlesColumn .content-column"),
         articlesHeaderBounds = document.getElementById("list-articles").getBoundingClientRect(),
         bookmarksBounds = column.querySelector(".list-bookmarks-items").getBoundingClientRect(),
@@ -20,7 +20,7 @@ Template.articlesList.events({
 });
 
 Template.articlesBookmarkedList.events({
-  "click #list-bookmarks": function(){
+  "touchstart #list-bookmarks, click #list-bookmarks": function(){
     App.Helpers.animateScroll(document.querySelector("#articlesColumn .content-column"), 0, 400);
   }
 });
